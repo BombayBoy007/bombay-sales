@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>BomBay Sales Dashboard</title>
+    <meta
+      name="description"
+      content="Admin dashboard for BomBay Sales to manage categories and affiliate products."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-body">
+    <div class="page-shell dashboard-shell">
+      <div class="bg-orb orb-one"></div>
+      <div class="bg-orb orb-two"></div>
+
+      <header class="site-header dashboard-header">
+        <div class="container nav">
+          <div class="brand-wrap">
+            <div class="brand-mark">B</div>
+            <div>
+              <div class="brand-name">BomBay Sales</div>
+            </div>
+          </div>
+
+          <nav class="main-nav mobile-nav" aria-label="Dashboard nav">
+            <a href="index.html">Store</a>
+            <a href="#dashboard">Manage</a>
+          </nav>
+
+          <div class="nav-actions">
+            <a class="ghost-btn" href="index.html">View site</a>
+          </div>
+        </div>
+      </header>
+
+      <main id="dashboard" class="dashboard-main">
+        <div class="container dashboard-grid">
+          <aside class="dashboard-panel left-panel">
+            <div class="panel-card">
+              <p class="eyebrow muted">Catalog admin</p>
+              <h2>Add / Edit</h2>
+
+              <form id="productForm" class="product-form">
+                <input type="hidden" id="productId" />
+
+                <label>
+                  Product name
+                  <input id="titleInput" type="text" placeholder="Product name" required />
+                </label>
+
+                <label>
+                  Zone
+                  <select id="categoryInput" required>
+                    <option value="Colaba Craze">Colaba Craze</option>
+                    <option value="Churchgate Fashion">Churchgate Fashion</option>
+                    <option value="Bhuleshwar Jewels">Bhuleshwar Jewels</option>
+                    <option value="Lamington Techs">Lamington Techs</option>
+                    <option value="Dadar Deals">Dadar Deals</option>
+                    <option value="Bandra Buzz">Bandra Buzz</option>
+                    <option value="Andheri Bazaar">Andheri Bazaar</option>
+                    <option value="Thane Tote">Thane Tote</option>
+                  </select>
+                </label>
+
+                <label>
+                  Price (₹)
+                  <input id="priceInput" type="number" min="1" step="1" placeholder="2999" required />
+                </label>
+
+                <label>
+                  Merchant
+                  <select id="merchantInput">
+                    <option value="Amazon">Amazon</option>
+                    <option value="Flipkart">Flipkart</option>
+                    <option value="Myntra">Myntra</option>
+                    <option value="Titan">Titan</option>
+                  </select>
+                </label>
+
+                <label>
+                  Image URL
+                  <input id="imageInput" type="url" placeholder="https://images.unsplash.com/..." required />
+                </label>
+
+                <label>
+                  Affiliate Link
+                  <input id="linkInput" type="url" placeholder="https://www.amazon.in/..." required />
+                </label>
+
+                <label>
+                  Description
+                  <textarea id="descriptionInput" rows="2" placeholder="Short description"></textarea>
+                </label>
+
+                <div class="form-actions">
+                  <button type="submit" class="primary-btn small-btn">Save</button>
+                  <button type="button" id="resetFormBtn" class="secondary-btn small-btn">Clear</button>
+                </div>
+              </form>
+            </div>
+          </aside>
+
+          <section class="dashboard-panel right-panel">
+            <div class="panel-card">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow muted">Products</p>
+                  <h2>Your catalog</h2>
+                </div>
+                <button id="resetDataBtn" class="secondary-btn small-btn">Reset</button>
+              </div>
+
+              <div id="adminProductList" class="admin-product-list"></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
